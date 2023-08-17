@@ -28,13 +28,30 @@ CREATE TABLE users2 (
 )
 
 CREATE TABLE users3 (
-    user_id SERIAL,
+    user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    UNIQUE(email, username),
     age INT DEFAULT 18
 )
 
 INSERT INTO users3 values(1, 'abc', 'abc@gmail.com')
+
+
+
+
+
+-- INSERT METHOD
+
+INSERT INTO users3(user_id, username, email, age) values(2, 'sharif', 'sharif@gmail.com', 27)
+
+INSERT INTO users3(user_id, username, email) 
+values
+(1,'ridwan', 'ridwan@gmail.com'),
+(2,'rafi', 'rafi@gmail.com'),
+(3,'arman', 'arman@gmail.com');
+
+
+TRUNCATE TABLE users3;
+
 
 SELECT * FROM users3
