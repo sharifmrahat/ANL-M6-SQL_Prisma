@@ -54,4 +54,37 @@ values
 TRUNCATE TABLE users3;
 
 
+-- ALTER METHOD
+
+ALTER TABLE users3
+ADD COLUMN password VARCHAR(255) DEFAULT 'admin123' NOT NULL
+
+ALTER TABLE users3
+ADD COLUMN demo int
+
+ALTER TABLE users3
+ALTER COLUMN demo type TEXT
+
+ALTER TABLE users3
+ALTER COLUMN demo set DEFAULT 'john doe'
+
+ALTER TABLE users3
+ALTER COLUMN demo drop DEFAULT
+
+ALTER TABLE users3
+RENAME COLUMN demo to country
+
+ALTER TABLE users3
+ALTER COLUMN country set NOT NULL
+
+ALTER TABLE users3
+ALTER COLUMN country drop NOT NULL
+
+
+ALTER TABLE users3
+ADD CONSTRAINT unique_email UNIQUE(email)
+
+ALTER TABLE users3
+DROP CONSTRAINT unique_email
+
 SELECT * FROM users3
