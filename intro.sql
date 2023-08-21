@@ -126,4 +126,45 @@ INSERT INTO Employees VALUES(
 1
 )
 
-SELECT * FROM Employees
+
+---------- Update & Delete ------------
+
+CREATE TABLE courses(
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    published_date DATE
+)
+
+INSERT INTO courses(course_name, description, published_date) 
+            VALUES
+                ('Introduction to HTML', 'HTML Crash course', '2018-04-23'),
+                ('Design with CSS', 'CSS Crash course', '2019-10-12'),
+                ('Modern Javascript', 'JS Crash course', '2020-02-05'),
+                ('Explore React.js', 'React.js Crash course', '2021-11-07');
+
+
+---------------- Update Single Row --------------
+
+UPDATE courses
+SET
+course_name = 'Style sheet with CSS'
+WHERE course_id = 2
+
+
+UPDATE courses
+SET
+course_name = 'Intro to HTML',
+description = 'HTML Master class'
+WHERE course_id < 2
+
+UPDATE courses
+SET
+description = 'Intermediate level course'
+WHERE course_id > 1 AND course_id < 4
+
+
+DELETE FROM courses
+WHERE course_id = 4
+
+SELECT * FROM courses
