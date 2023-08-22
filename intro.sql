@@ -97,74 +97,95 @@
 -- Create employee table
 -- each department can have many employees
 
-CREATE TABLE Departments(
-    dept_id SERIAL PRIMARY KEY,
-    dept_name VARCHAR(50)
-)
+-- CREATE TABLE Departments(
+--     dept_id SERIAL PRIMARY KEY,
+--     dept_name VARCHAR(50)
+-- )
 
-INSERT INTO Departments VALUES(
-    1,
-    'IT'
-)
+-- INSERT INTO Departments VALUES(
+--     1,
+--     'IT'
+-- )
 
--- Create employee table
--- each employee belongs to a department
+-- -- Create employee table
+-- -- each employee belongs to a department
 
-CREATE TABLE Employees(
-    emp_id SERIAL PRIMARY KEY,
-    emp_name VARCHAR(50) NOT NULL,
-    department_id INT,
-    CONSTRAINT fk_constraint_dept
-    FOREIGN KEY(department_id)
-    REFERENCES Departments(dept_id)
-)
-
-
-INSERT INTO Employees VALUES(
-1,
-'John',
-1
-)
+-- CREATE TABLE Employees(
+--     emp_id SERIAL PRIMARY KEY,
+--     emp_name VARCHAR(50) NOT NULL,
+--     department_id INT,
+--     CONSTRAINT fk_constraint_dept
+--     FOREIGN KEY(department_id)
+--     REFERENCES Departments(dept_id)
+-- )
 
 
----------- Update & Delete ------------
-
-CREATE TABLE courses(
-    course_id SERIAL PRIMARY KEY,
-    course_name VARCHAR(255) NOT NULL,
-    description VARCHAR(255),
-    published_date DATE
-)
-
-INSERT INTO courses(course_name, description, published_date) 
-            VALUES
-                ('Introduction to HTML', 'HTML Crash course', '2018-04-23'),
-                ('Design with CSS', 'CSS Crash course', '2019-10-12'),
-                ('Modern Javascript', 'JS Crash course', '2020-02-05'),
-                ('Explore React.js', 'React.js Crash course', '2021-11-07');
+-- INSERT INTO Employees VALUES(
+-- 1,
+-- 'John',
+-- 1
+-- )
 
 
----------------- Update Single Row --------------
+-- ---------- Update & Delete ------------
 
-UPDATE courses
-SET
-course_name = 'Style sheet with CSS'
-WHERE course_id = 2
+-- CREATE TABLE courses(
+--     course_id SERIAL PRIMARY KEY,
+--     course_name VARCHAR(255) NOT NULL,
+--     description VARCHAR(255),
+--     published_date DATE
+-- )
 
-
-UPDATE courses
-SET
-course_name = 'Intro to HTML',
-description = 'HTML Master class'
-WHERE course_id < 2
-
-UPDATE courses
-SET
-description = 'Intermediate level course'
-WHERE course_id > 1 AND course_id < 4
+-- INSERT INTO courses(course_name, description, published_date) 
+--             VALUES
+--                 ('Introduction to HTML', 'HTML Crash course', '2018-04-23'),
+--                 ('Design with CSS', 'CSS Crash course', '2019-10-12'),
+--                 ('Modern Javascript', 'JS Crash course', '2020-02-05'),
+--                 ('Explore React.js', 'React.js Crash course', '2021-11-07');
 
 
-DELETE FROM courses
-WHERE course_id = 4
+-- ---------------- Update Single Row --------------
 
-SELECT * FROM courses
+-- UPDATE courses
+-- SET
+-- course_name = 'Style sheet with CSS'
+-- WHERE course_id = 2
+
+
+-- UPDATE courses
+-- SET
+-- course_name = 'Intro to HTML',
+-- description = 'HTML Master class'
+-- WHERE course_id < 2
+
+-- UPDATE courses
+-- SET
+-- description = 'Intermediate level course'
+-- WHERE course_id > 1 AND course_id < 4
+
+
+-- DELETE FROM courses
+-- WHERE course_id = 4
+
+-- SELECT * FROM courses
+
+
+---------------- SELECT METHODS --------------
+
+-- Select All Fields/Rows
+
+SELECT * FROM departments
+
+--- SPECIFIC select
+
+SELECT course_name, published_date from courses
+
+--- SELECT UNIQUE 
+SELECT DISTINCT published_date from courses
+
+-- Conditional SELECTION
+SELECT username, email, age from users
+WHERE age > 18
+
+-- < > == not equal  
+
