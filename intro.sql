@@ -189,3 +189,19 @@ WHERE age > 18
 
 -- < > == not equal  
 
+--------------- SORTING --------------
+
+SELECT * FROM users ORDER BY username ASC LIMIT 10
+
+SELECT * FROM users ORDER BY user_id DESC LIMIT 5
+
+SELECT * FROM users ORDER BY username ASC LIMIT 2 OFFSET 2
+
+--LIMIT 10 OFFSET 0 = page-1 records-10 skip-0 (default offset 0)
+--LIMIT 10 OFFSET 1 =  page-2 records-10 skip-10
+--LIMIT 10 OFFSET 2 = page-3 records-10 skip-20
+--------------------------------------------------
+--LIMIT x OFFSET y = page-(y+1) records-x skip-(y+1)*x
+
+
+
