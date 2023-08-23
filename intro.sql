@@ -35,7 +35,7 @@
 --     age INT DEFAULT 18
 -- )
 
--- INSERT INTO users3 values(1, 'abc', 'abc@gmail.com')
+-- INSERT INTO users(username, email) values('shofiq', 'shofiq@gmail.com')
 
 
 
@@ -204,4 +204,28 @@ SELECT * FROM users ORDER BY username ASC LIMIT 2 OFFSET 2
 --LIMIT x OFFSET y = page-(y+1) records-x skip-(y+1)*x
 
 
+------------- IN, NOT IN, BETWEEN, LIKE -------------
 
+SELECT * FROM users WHERE user_id IN (1, 3, 5)
+
+SELECT * FROM users WHERE user_id NOT IN (2, 3)
+
+SELECT * FROM users WHERE age BETWEEN 30 AND 60
+
+SELECT * FROM users WHERE username LIKE '%im%' --im wala name gula return korbe
+
+SELECT * FROM users WHERE username LIKE 'a%' --a diye start hobe
+
+SELECT * FROM users WHERE username LIKE '%m' --ends with m
+
+SELECT * FROM users WHERE username LIKE '_a%' -- second position a
+
+SELECT * FROM users WHERE username LIKE '__a%' -- 3rd position a (_ for position)
+
+SELECT * FROM users WHERE username LIKE '_a__m'
+
+SELECT * FROM users WHERE username LIKE 'a%n'
+
+SELECT * FROM users WHERE username = 'rahim'
+
+SELECT * FROM users WHERE country IS NULL
