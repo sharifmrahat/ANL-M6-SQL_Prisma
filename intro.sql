@@ -102,29 +102,41 @@
 --     dept_name VARCHAR(50)
 -- )
 
--- INSERT INTO Departments VALUES(
---     1,
---     'IT'
--- )
+INSERT INTO Departments 
+            VALUES
+            -- (2,'HR'),
+            -- (3,'Admin'),
+            -- (4,'Sales'),
+            -- (5,'Marketing'),
+            -- (6,'Finance')
+            (7,'Logistics')
 
 -- -- Create employee table
 -- -- each employee belongs to a department
 
--- CREATE TABLE Employees(
---     emp_id SERIAL PRIMARY KEY,
---     emp_name VARCHAR(50) NOT NULL,
---     department_id INT,
---     CONSTRAINT fk_constraint_dept
---     FOREIGN KEY(department_id)
---     REFERENCES Departments(dept_id)
--- )
+CREATE TABLE Employees(
+    emp_id SERIAL PRIMARY KEY,
+    emp_name VARCHAR(50) NOT NULL,
+    department_id INT NULL,
+    CONSTRAINT fk_constraint_dept
+    FOREIGN KEY(department_id)
+    REFERENCES Departments(dept_id)
+)
 
 
--- INSERT INTO Employees VALUES(
--- 1,
--- 'John',
--- 1
--- )
+INSERT INTO Employees 
+            VALUES
+                -- (2,'Arman',1),
+                -- (3,'Nizul',1),
+                -- (4,'Asad',1),
+                -- (5,'Ridwan',2),
+                -- (6,'Rakib',2),
+                -- (7,'Rafi',3),
+                -- (8,'Emon',3),
+                -- (9,'Sadman',4),
+                -- (10,'Yasin',5),
+                -- (11,'Kafi',5)
+                    (12,'Safi')
 
 
 -- ---------- Update & Delete ------------
@@ -229,3 +241,41 @@ SELECT * FROM users WHERE username LIKE 'a%n'
 SELECT * FROM users WHERE username = 'rahim'
 
 SELECT * FROM users WHERE country IS NULL
+
+
+
+
+------------------ Joining ------------------------
+
+-- Inner joining
+SELECT *
+FROM employees
+INNER JOIN departments ON departments.dept_id = employees.department_id
+
+-- Left joining
+
+SELECT *
+FROM employees
+LEFT JOIN departments ON departments.dept_id = employees.department_id
+
+-- Right joining
+
+SELECT *
+FROM employees
+RIGHT JOIN departments ON departments.dept_id = employees.department_id
+
+-- Full joining
+
+SELECT *
+FROM employees
+FULL JOIN departments ON departments.dept_id = employees.department_id
+
+-- Natural JOIN
+SELECT *
+FROM employees
+NATURAL JOIN departments
+
+-- Cross JOIN
+SELECT *
+FROM employees
+CROSS JOIN departments
