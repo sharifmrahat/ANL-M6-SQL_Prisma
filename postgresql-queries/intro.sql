@@ -1,4 +1,4 @@
--- Active: 1692550787989@@127.0.0.1@5432@mysqldb
+-- Active: 1692550787989@@127.0.0.1@5432@university_db
 CREATE DATABASE test1
 DROP DATABASE test1
 ALTER DATABASE test1 RENAME TO mysqldb
@@ -318,3 +318,60 @@ AVG(e.salary), SUM(e.salary), MIN(e.salary), MAX(e.salary), COUNT(e.salary)
 FROM employees e
 FULL JOIN departments d ON e.department_id = d.department_id
 GROUP BY HAVING AVG(e.salary) > 40000
+
+
+----------------------------- Sub Query -------------------------
+--first query = (sub-query)
+
+SELECT * FROM students WHERE age = (SELECT MAX (age) FROM students)
+
+-- Also we can use sub-query instead of column: used rarely
+
+SELECT email, (SELECT AVG(age) from students) from students
+
+
+----------------------------- Views -------------------------
+
+CREATE VIEW customer_sales AS
+SELECT customer_id, SUM(quantity * product_price) AS total_revenue
+FROM sales
+GROUP BY customer_id;
+
+
+----------------------------- Stored PROCEDURE -------------------------
+
+CREATE PROCEDURE deactivate_unpaid_accounts()
+LANGUAGE SQL
+AS $$
+    UPDATE accounts SET account = false WHERE balance = 0
+    --more queries here
+$$
+
+CALL deactivate_unpaid_accounts()
+
+
+----------------------------- Function -------------------------
+
+CREATE FUNCTION account_type_count(account_type TEXT) RETURNS INTEGER
+LANGUAGE plpgsql --we can use sql also
+AS $$
+    DECLARE account_count INT
+    BEGIN 
+        SELECT COUNT(*) INTO account_count FROM accounts WHERE account.account_type = $1; ---$n = n number parameter
+        RETURN account_count
+    END
+$$
+
+CALL account_type_count()
+
+
+----------------------------- Trigger -------------------------
+
+CREATE TRIGGER add_tax_trigger
+AFTER INSERT ON products
+FOR EACH ROW
+EXECUTE FUNCTION update_final_price()
+
+----------------------------- Indexing -------------------------
+
+EXPLAIN ANALYZE query -- to ANALYZE a query
