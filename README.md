@@ -37,4 +37,3 @@
 - [Raw database access](https://www.prisma.io/docs/concepts/components/prisma-client/raw-database-access)
 - [Prisma Studio](https://www.prisma.io/docs/concepts/components/prisma-studio)
 - [Team development with Prisma Migrate](https://www.prisma.io/docs/guides/migrate/developing-with-prisma-migrate/team-development)
->>>>>>> 48bed44 (resource updated)
