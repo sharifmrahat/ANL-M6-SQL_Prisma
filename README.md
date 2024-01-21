@@ -9,20 +9,20 @@
 - Module-32: Prisma
 - Module-33: Database operations & Development
 - Module-34: Assignment-7
-- Module-35: 
-- Module-36: 
-- Module-37:
-- Module-38:
-- Module-39:
-- Module-40:
-- Module-41: 
-- Module-42:
-- Module-43:
-- Module-44:
-- Module-45:
-- Module-46:
-- Module-47:
-- Module-48:
+- Module-35: Building core service part-1
+- Module-36:Building core service part-2
+- Module-37: Building core service part-3
+- Module-38: Building core service part-4
+- Module-39: Building core service part-5
+- Module-40: Assignment-8
+- Module-41: Building core service part-6
+- Module-42: Building core service part-7
+- Module-43: Building core service part-8
+- Module-44: Building core service part-9
+- Module-45: API gateway implementation part-1
+- Module-46: API gateway implementation part-2
+- Module-47: API gateway implementation part-3
+- Module-48: API gateway implementation part-4
 
 
 ## Important Links
